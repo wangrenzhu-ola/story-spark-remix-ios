@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1CF7D4E484ED022C5CDD73D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9949E01B19E54174CC54938 /* ContentView.swift */; };
+		28BF5FDE22E514922C3F0EFF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A336EABDC5A42142BF512 /* Models.swift */; };
+		423BD65BDD67ED2209F7E6D6 /* StorySparkRemixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A044F7A06BBF7C5227B3ADD /* StorySparkRemixApp.swift */; };
+		468A01A1F18930E0BCDEDA25 /* SparkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384931E308A5B0AA09E653B /* SparkStore.swift */; };
+		5D308FE5925955984B37AA50 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF1CAF9C4A1DED89D208BD /* Views.swift */; };
+		637F0723D192A49C922446DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBE4437F6F9F86A58B15084 /* Foundation.framework */; };
+		77E66EA05DF0DEDB9979176F /* StorySparkIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955D89107502158C08AFC9E1 /* StorySparkIntent.swift */; };
+		9343C4FBE6C3457E527C0BB0 /* PremiumStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655C99BBE1EBA38AC9D490C /* PremiumStore.swift */; };
+		C45751FCBD1FA6247C39026D /* SparkRemixerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADE6732334572474EB7B7E /* SparkRemixerTests.swift */; };
+		D5EB0398594B5B348CE526B0 /* StorySparkRemix.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 47AA7E43F72533125D2D2EA2 /* StorySparkRemix.storekit */; };
+		EE23D077BD9A7CD6C64B84AF /* SparkRemixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B38DB7AAA41770EA7EC0A2 /* SparkRemixer.swift */; };
+		FCE2E4007678926E45075505 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBE4437F6F9F86A58B15084 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		90AB75A6575A2C6B5EDD0289 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1ECCF064AF59672706C52C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3FC3E175C4F7432A0072F70;
+			remoteInfo = StorySparkRemix;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2B7A336EABDC5A42142BF512 /* Models.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		3384931E308A5B0AA09E653B /* SparkStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SparkStore.swift; sourceTree = "<group>"; };
+		47AA7E43F72533125D2D2EA2 /* StorySparkRemix.storekit */ = {isa = PBXFileReference; includeInIndex = 1; path = StorySparkRemix.storekit; sourceTree = "<group>"; };
+		4EFF1CAF9C4A1DED89D208BD /* Views.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		4FBE4437F6F9F86A58B15084 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		69B38DB7AAA41770EA7EC0A2 /* SparkRemixer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SparkRemixer.swift; sourceTree = "<group>"; };
+		84ADE6732334572474EB7B7E /* SparkRemixerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SparkRemixerTests.swift; sourceTree = "<group>"; };
+		8A044F7A06BBF7C5227B3ADD /* StorySparkRemixApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StorySparkRemixApp.swift; sourceTree = "<group>"; };
+		955D89107502158C08AFC9E1 /* StorySparkIntent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StorySparkIntent.swift; sourceTree = "<group>"; };
+		A5B21424679A82F501C92CE0 /* StorySparkRemixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorySparkRemixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A655C99BBE1EBA38AC9D490C /* PremiumStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PremiumStore.swift; sourceTree = "<group>"; };
+		D4942902A26E43F6912C4DE3 /* StorySparkRemix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorySparkRemix.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9949E01B19E54174CC54938 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D28FE19CBA54B62C6E682EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				637F0723D192A49C922446DE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8ADBDFC417D6C474B657EEFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCE2E4007678926E45075505 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		574D3A053A3D5E396A0CDFA6 = {
+			isa = PBXGroup;
+			children = (
+				AE9047D593912FF5EF043C72 /* Products */,
+				FE9DFE7FD7C41EEA29754C88 /* Frameworks */,
+				E928499DC3353436230426AD /* StorySparkRemix */,
+				7079C08C09BDCA667C46E5B2 /* StorySparkRemixTests */,
+				47AA7E43F72533125D2D2EA2 /* StorySparkRemix.storekit */,
+			);
+			sourceTree = "<group>";
+		};
+		7079C08C09BDCA667C46E5B2 /* StorySparkRemixTests */ = {
+			isa = PBXGroup;
+			children = (
+				84ADE6732334572474EB7B7E /* SparkRemixerTests.swift */,
+			);
+			name = StorySparkRemixTests;
+			path = StorySparkRemixTests;
+			sourceTree = "<group>";
+		};
+		AE9047D593912FF5EF043C72 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4942902A26E43F6912C4DE3 /* StorySparkRemix.app */,
+				A5B21424679A82F501C92CE0 /* StorySparkRemixTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E48699B2926A745EF0040308 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4FBE4437F6F9F86A58B15084 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E928499DC3353436230426AD /* StorySparkRemix */ = {
+			isa = PBXGroup;
+			children = (
+				D9949E01B19E54174CC54938 /* ContentView.swift */,
+				2B7A336EABDC5A42142BF512 /* Models.swift */,
+				A655C99BBE1EBA38AC9D490C /* PremiumStore.swift */,
+				69B38DB7AAA41770EA7EC0A2 /* SparkRemixer.swift */,
+				3384931E308A5B0AA09E653B /* SparkStore.swift */,
+				955D89107502158C08AFC9E1 /* StorySparkIntent.swift */,
+				8A044F7A06BBF7C5227B3ADD /* StorySparkRemixApp.swift */,
+				4EFF1CAF9C4A1DED89D208BD /* Views.swift */,
+			);
+			name = StorySparkRemix;
+			path = StorySparkRemix;
+			sourceTree = "<group>";
+		};
+		FE9DFE7FD7C41EEA29754C88 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E48699B2926A745EF0040308 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B3FC3E175C4F7432A0072F70 /* StorySparkRemix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29FEB40AFD32636654504380 /* Build configuration list for PBXNativeTarget "StorySparkRemix" */;
+			buildPhases = (
+				724C3CDF08D9FEFF28AFEAFC /* Sources */,
+				8ADBDFC417D6C474B657EEFF /* Frameworks */,
+				5EDAB97CD70ABA8C5E72B6F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StorySparkRemix;
+			productName = StorySparkRemix;
+			productReference = D4942902A26E43F6912C4DE3 /* StorySparkRemix.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FE9538EAEA2692C936CAD73B /* StorySparkRemixTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79D19B0CFF517358220E92DA /* Build configuration list for PBXNativeTarget "StorySparkRemixTests" */;
+			buildPhases = (
+				376B028252C138712107EBDE /* Sources */,
+				1D28FE19CBA54B62C6E682EB /* Frameworks */,
+				181FE9BEC6E0E6D116CF5642 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C9C94025DBE8FAEBECFDE97 /* PBXTargetDependency */,
+			);
+			name = StorySparkRemixTests;
+			productName = StorySparkRemixTests;
+			productReference = A5B21424679A82F501C92CE0 /* StorySparkRemixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1ECCF064AF59672706C52C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 1E18197A65D4973E2A583AFF /* Build configuration list for PBXProject "StorySparkRemix" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 574D3A053A3D5E396A0CDFA6;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 100;
+			productRefGroup = AE9047D593912FF5EF043C72 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B3FC3E175C4F7432A0072F70 /* StorySparkRemix */,
+				FE9538EAEA2692C936CAD73B /* StorySparkRemixTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		181FE9BEC6E0E6D116CF5642 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EDAB97CD70ABA8C5E72B6F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EB0398594B5B348CE526B0 /* StorySparkRemix.storekit in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		376B028252C138712107EBDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C45751FCBD1FA6247C39026D /* SparkRemixerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		724C3CDF08D9FEFF28AFEAFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CF7D4E484ED022C5CDD73D4 /* ContentView.swift in Sources */,
+				28BF5FDE22E514922C3F0EFF /* Models.swift in Sources */,
+				9343C4FBE6C3457E527C0BB0 /* PremiumStore.swift in Sources */,
+				EE23D077BD9A7CD6C64B84AF /* SparkRemixer.swift in Sources */,
+				468A01A1F18930E0BCDEDA25 /* SparkStore.swift in Sources */,
+				77E66EA05DF0DEDB9979176F /* StorySparkIntent.swift in Sources */,
+				423BD65BDD67ED2209F7E6D6 /* StorySparkRemixApp.swift in Sources */,
+				5D308FE5925955984B37AA50 /* Views.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2C9C94025DBE8FAEBECFDE97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = StorySparkRemix;
+			target = B3FC3E175C4F7432A0072F70 /* StorySparkRemix */;
+			targetProxy = 90AB75A6575A2C6B5EDD0289 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		40FFB29A44064E8A6C5FA227 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Story Spark Remix";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.storysparkremix;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8DFEBD147D1A7E4BEF4DCCC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Story Spark Remix";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.storysparkremix;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A51DBE350FE7FB7028412DEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A733B74A7EDC8D7771EDCFB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.storysparkremix.tests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StorySparkRemix.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StorySparkRemix";
+			};
+			name = Debug;
+		};
+		DBB80ECB7F09FB73AEFFE5CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.storysparkremix.tests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StorySparkRemix.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StorySparkRemix";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EB603FE2B742849301C90B62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E18197A65D4973E2A583AFF /* Build configuration list for PBXProject "StorySparkRemix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB603FE2B742849301C90B62 /* Debug */,
+				A51DBE350FE7FB7028412DEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29FEB40AFD32636654504380 /* Build configuration list for PBXNativeTarget "StorySparkRemix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40FFB29A44064E8A6C5FA227 /* Release */,
+				8DFEBD147D1A7E4BEF4DCCC9 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79D19B0CFF517358220E92DA /* Build configuration list for PBXNativeTarget "StorySparkRemixTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBB80ECB7F09FB73AEFFE5CC /* Release */,
+				A733B74A7EDC8D7771EDCFB3 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1ECCF064AF59672706C52C0 /* Project object */;
+}
