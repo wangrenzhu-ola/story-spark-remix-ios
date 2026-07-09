@@ -8,6 +8,7 @@ struct TodaySparkView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
+                    DarkPageHeader(title: "Story Spark Remix", subtitle: "A twelve-minute sprint from blank page to micro-fiction draft")
                     InkSparkHero(spark: store.todaySpark)
                     Button("Remix This Spark") {
                         store.updateEditingSpark(store.todaySpark)
@@ -19,7 +20,7 @@ struct TodaySparkView: View {
                 .padding()
             }
             .background(Color.midnightPaper.ignoresSafeArea())
-            .navigationTitle("Story Spark Remix")
+            .navigationBarHidden(true)
         }
     }
 }
@@ -32,6 +33,13 @@ struct RemixLabView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 16) {
+                HStack(alignment: .top) {
+                    DarkPageHeader(title: "Remix Lab", subtitle: "Turn one phrase into editable story constraints")
+                    Spacer()
+                    Button("Use Starter") { store.remix(seedPhrase: "A key arrives with tomorrow’s date.") }
+                        .foregroundColor(.emberGold)
+                        .accessibilityLabel("Use starter spark")
+                }
                 TextField("Type one idea or paste a dictated phrase", text: $seedPhrase)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .accessibilityLabel("Manual spark phrase")
@@ -50,8 +58,7 @@ struct RemixLabView: View {
             }
             .padding()
             .background(Color.midnightPaper.ignoresSafeArea())
-            .navigationTitle("Remix Lab")
-            .toolbar { Button("Use Starter") { store.remix(seedPhrase: "A key arrives with tomorrow’s date.") } }
+            .navigationBarHidden(true)
         }
     }
 
@@ -187,6 +194,24 @@ struct SettingsView: View {
     }
 }
 
+private struct DarkPageHeader: View {
+    let title: String
+    let subtitle: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(title)
+                .font(.largeTitle.bold())
+                .foregroundColor(.paperCream)
+                .accessibilityAddTraits(.isHeader)
+            Text(subtitle)
+                .font(.subheadline)
+                .foregroundColor(.paperCream.opacity(0.72))
+        }
+        .accessibilityElement(children: .combine)
+    }
+}
+
 private struct RecentDraftsSection: View {
     @EnvironmentObject private var store: SparkStore
     @Binding var selectedTab: Int
@@ -312,7 +337,9 @@ private struct DraftPulseCard: View {
                     .foregroundColor(.red)
             }
         }
-        .padding(.vertical, 8)
+        .padding(14)
+        .background(Color.paperCream)
+        .cornerRadius(18)
         .accessibilityElement(children: .combine)
         .accessibilityLabel("Draft pulse card, \(draft.title), \(draft.status.rawValue)")
     }
