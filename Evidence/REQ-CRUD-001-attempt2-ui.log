@@ -1,0 +1,246 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -project StorySparkRemix.xcodeproj -scheme StorySparkRemix -destination "platform=iOS Simulator,id=BBB7317F-76C6-4BD5-BF4B-EF6ABAEBA1F8" "-only-testing:StorySparkRemixUITests/StorySparkRemixUITests/testCreateEditSaveDeleteConfirmationFlow" -resultBundlePath Evidence/REQ-CRUD-001-attempt2-ui.xcresult
+
+Writing result bundle at path:
+	/Users/wangrenzhu/work/story-spark-remix-ios/Evidence/REQ-CRUD-001-attempt2-ui.xcresult
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (3 targets)
+    Target 'StorySparkRemixUITests' in project 'StorySparkRemix'
+        ➜ Explicit dependency on target 'StorySparkRemix' in project 'StorySparkRemix'
+    Target 'StorySparkRemixTests' in project 'StorySparkRemix'
+        ➜ Explicit dependency on target 'StorySparkRemix' in project 'StorySparkRemix'
+    Target 'StorySparkRemix' in project 'StorySparkRemix' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-6cfe768891a92b912361537c460fe42b.sdkstatcache
+    cd /Users/wangrenzhu/work/story-spark-remix-ios/StorySparkRemix.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -o /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-6cfe768891a92b912361537c460fe42b.sdkstatcache
+
+SwiftDriver StorySparkRemixUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+    cd /Users/wangrenzhu/work/story-spark-remix-ios
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name StorySparkRemixUITests -Onone @/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -parse-as-library -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-6cfe768891a92b912361537c460fe42b.sdkstatcache -output-file-map /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests-generated-files.hmap -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests-own-target-headers.hmap -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests-project-headers.hmap -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/DerivedSources-normal/arm64 -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/DerivedSources/arm64 -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests-Swift.h -working-directory /Users/wangrenzhu/work/story-spark-remix-ios -experimental-emit-module-separately -disable-cmo
+
+SwiftCompile normal arm64 Compiling\ StorySparkRemixUITests.swift /Users/wangrenzhu/work/story-spark-remix-ios/StorySparkRemixUITests/StorySparkRemixUITests.swift (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+
+SwiftCompile normal arm64 /Users/wangrenzhu/work/story-spark-remix-ios/StorySparkRemixUITests/StorySparkRemixUITests.swift (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+    cd /Users/wangrenzhu/work/story-spark-remix-ios
+    
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ StorySparkRemixUITests (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+
+SwiftCompile normal arm64 /Users/wangrenzhu/work/story-spark-remix-ios/StorySparkRemixUITests/StorySparkRemixUITests.swift (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+    cd /Users/wangrenzhu/work/story-spark-remix-ios
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for StorySparkRemixUITests (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+
+SwiftDriver\ Compilation\ Requirements StorySparkRemixUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+    cd /Users/wangrenzhu/work/story-spark-remix-ios
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name StorySparkRemixUITests -Onone @/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -parse-as-library -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-6cfe768891a92b912361537c460fe42b.sdkstatcache -output-file-map /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests-generated-files.hmap -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests-own-target-headers.hmap -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests-project-headers.hmap -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/DerivedSources-normal/arm64 -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/DerivedSources/arm64 -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests-Swift.h -working-directory /Users/wangrenzhu/work/story-spark-remix-ios -experimental-emit-module-separately -disable-cmo
+
+Copy /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.swiftsourceinfo (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+    cd /Users/wangrenzhu/work/story-spark-remix-ios
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.swiftsourceinfo /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+Copy /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests.swiftmodule/arm64-apple-ios-simulator.abi.json /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.abi.json (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+    cd /Users/wangrenzhu/work/story-spark-remix-ios
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.abi.json /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+SwiftDriverJobDiscovery normal arm64 Compiling StorySparkRemixUITests.swift (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+
+SwiftDriver\ Compilation StorySparkRemixUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+    cd /Users/wangrenzhu/work/story-spark-remix-ios
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name StorySparkRemixUITests -Onone @/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -parse-as-library -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-6cfe768891a92b912361537c460fe42b.sdkstatcache -output-file-map /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests-generated-files.hmap -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests-own-target-headers.hmap -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests-project-headers.hmap -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/DerivedSources-normal/arm64 -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/DerivedSources/arm64 -Xcc -I/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests-Swift.h -working-directory /Users/wangrenzhu/work/story-spark-remix-ios -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app/PlugIns/StorySparkRemixUITests.xctest/StorySparkRemixUITests normal (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+    cd /Users/wangrenzhu/work/story-spark-remix-ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios18.0-simulator -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -O0 -L/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk/Developer/Library/Frameworks -filelist /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.swiftmodule @/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests-linker-args.resp -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests.xctest-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests.xctest-Simulated.xcent.der -framework Foundation -Xlinker -no_adhoc_codesign -o /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app/PlugIns/StorySparkRemixUITests.xctest/StorySparkRemixUITests
+
+ExtractAppIntentsMetadata (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+    cd /Users/wangrenzhu/work/story-spark-remix-ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name StorySparkRemixUITests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk --xcode-version 17F113 --platform-family iOS --deployment-target 18.0 --bundle-identifier com.appfactory.storysparkremix.uitests --output /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app/PlugIns/StorySparkRemixUITests.xctest --target-triple arm64-apple-ios18.0-simulator --binary-file /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app/PlugIns/StorySparkRemixUITests.xctest/StorySparkRemixUITests --dependency-file /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests_dependency_info.dat --stringsdata-file /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.SwiftFileList --metadata-file-list /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests.DependencyMetadataFileList --static-metadata-file-list /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/StorySparkRemixUITests.DependencyStaticMetadataFileList --swift-const-vals-list /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/Objects-normal/arm64/StorySparkRemixUITests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-07-09 22:47:45.492 appintentsmetadataprocessor[31668:309246534] Starting appintentsmetadataprocessor export
+2026-07-09 22:47:45.493 appintentsmetadataprocessor[31668:309246534] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+CopySwiftLibs /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app/PlugIns/StorySparkRemixUITests.xctest (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+    cd /Users/wangrenzhu/work/story-spark-remix-ios
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app/PlugIns/StorySparkRemixUITests.xctest/StorySparkRemixUITests --scan-folder /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app/PlugIns/StorySparkRemixUITests.xctest/Frameworks --scan-folder /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app/PlugIns/StorySparkRemixUITests.xctest/PlugIns --scan-folder /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app/PlugIns/StorySparkRemixUITests.xctest/SystemExtensions --scan-folder /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app/PlugIns/StorySparkRemixUITests.xctest/Extensions --scan-folder /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app/PlugIns/StorySparkRemixUITests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Intermediates.noindex/StorySparkRemix.build/Debug-iphonesimulator/StorySparkRemixUITests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+CodeSign /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app/PlugIns/StorySparkRemixUITests.xctest (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+    cd /Users/wangrenzhu/work/story-spark-remix-ios
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app/PlugIns/StorySparkRemixUITests.xctest
+
+CodeSign /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app (in target 'StorySparkRemixUITests' from project 'StorySparkRemix')
+    cd /Users/wangrenzhu/work/story-spark-remix-ios
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app
+/Users/wangrenzhu/Library/Developer/Xcode/DerivedData/StorySparkRemix-eobmvonwpzvxegarrkiwppqvtaok/Build/Products/Debug-iphonesimulator/StorySparkRemixUITests-Runner.app: replacing existing signature
+
+2026-07-09 22:47:46.524449+0800 StorySparkRemixUITests-Runner[31785:309246839] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'Selected tests' started at 2026-07-09 22:47:46.988.
+Test Suite 'StorySparkRemixUITests.xctest' started at 2026-07-09 22:47:46.988.
+Test Suite 'StorySparkRemixUITests' started at 2026-07-09 22:47:46.988.
+Test Case '-[StorySparkRemixUITests.StorySparkRemixUITests testCreateEditSaveDeleteConfirmationFlow]' started.
+    t =     0.00s Start Test at 2026-07-09 22:47:46.989
+    t =     0.02s Set Up
+    t =     0.02s Open com.appfactory.storysparkremix
+    t =     0.02s     Launch com.appfactory.storysparkremix
+2026-07-09 22:47:47.065 xcodebuild[31234:309245952] [MT] IDELaunchParametersSnapshot: The operation couldn’t be completed. (DebuggerLLDB.DebuggerVersionStore.StoreError error 0.)
+2026-07-09 22:47:47.065 xcodebuild[31234:309245952] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     0.48s         Setting up automation session
+objc[31785]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_23F77/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.5.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x10a3b8310) and /Library/Developer/CoreSimulator/Volumes/iOS_23F77/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.5.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x109ae0398). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+    t =     1.12s         Wait for com.appfactory.storysparkremix to idle
+    t =     2.42s Tap "Sprint" Button
+    t =     2.42s     Wait for com.appfactory.storysparkremix to idle
+    t =     2.43s     Find the "Sprint" Button
+    t =     2.52s     Check for interrupting elements affecting "Sprint" Button
+    t =     2.54s     Synthesize event
+    t =     2.83s     Wait for com.appfactory.storysparkremix to idle
+    t =     4.15s Waiting 5.0s for "microdraft-body-editor" TextView to exist
+    t =     5.21s     Checking `Expect predicate `existsNoRetry == 1` for object "microdraft-body-editor" TextView`
+    t =     5.21s         Checking existence of `"microdraft-body-editor" TextView`
+    t =     5.26s Tap "microdraft-body-editor" TextView
+    t =     5.26s     Wait for com.appfactory.storysparkremix to idle
+    t =     5.26s     Find the "microdraft-body-editor" TextView
+    t =     5.28s     Check for interrupting elements affecting "microdraft-body-editor" TextView
+    t =     5.30s     Synthesize event
+    t =     5.59s     Wait for com.appfactory.storysparkremix to idle
+    t =     5.60s Type 'A comet knocks twi...' into Target Application 'com.appfactory.storysparkremix'
+    t =     5.60s     Wait for com.appfactory.storysparkremix to idle
+    t =     5.60s     Find the Target Application 'com.appfactory.storysparkremix'
+    t =     5.63s     Check for interrupting elements affecting "Story Spark Remix" Application
+    t =     5.66s     Synthesize event
+    t =     5.66s         Get number of matches for: Elements containing elements matching predicate 'hasKeyboardFocus == 1'
+    t =     6.56s     Wait for com.appfactory.storysparkremix to idle
+    t =     6.57s Tap "save-microdraft-button" Button
+    t =     6.57s     Wait for com.appfactory.storysparkremix to idle
+    t =     6.57s     Find the "save-microdraft-button" Button
+    t =     6.60s     Check for interrupting elements affecting "save-microdraft-button" Button
+    t =     6.63s     Synthesize event
+    t =     6.64s         Scroll element to visible
+    t =     6.64s         Find the "save-microdraft-button" Button
+    t =     6.68s         Computed hit point {227.66666666666663, 437.83333333333326} after scrolling to visible
+    t =     6.97s     Wait for com.appfactory.storysparkremix to idle
+    t =     7.71s Waiting 5.0s for "Skip This Beat" Button to exist
+    t =     8.79s     Checking `Expect predicate `existsNoRetry == 1` for object "Skip This Beat" Button`
+    t =     8.79s         Checking existence of `"Skip This Beat" Button`
+    t =     8.85s Tap "Skip This Beat" Button
+    t =     8.85s     Wait for com.appfactory.storysparkremix to idle
+    t =     8.86s     Find the "Skip This Beat" Button
+    t =     8.89s     Check for interrupting elements affecting "Skip This Beat" Button
+    t =     8.92s     Synthesize event
+    t =     9.21s     Wait for com.appfactory.storysparkremix to idle
+    t =     9.88s Waiting 5.0s for "edit-draft-button" Button to exist
+    t =    10.95s     Checking `Expect predicate `existsNoRetry == 1` for object "edit-draft-button" Button`
+    t =    10.95s         Checking existence of `"edit-draft-button" Button`
+    t =    11.05s Tap "edit-draft-button" Button
+    t =    11.05s     Wait for com.appfactory.storysparkremix to idle
+    t =    11.05s     Find the "edit-draft-button" Button
+    t =    11.12s     Check for interrupting elements affecting "edit-draft-button" Button
+    t =    11.15s     Synthesize event
+    t =    11.45s     Wait for com.appfactory.storysparkremix to idle
+    t =    12.28s Tap "microdraft-body-editor" TextView
+    t =    12.28s     Wait for com.appfactory.storysparkremix to idle
+    t =    12.29s     Find the "microdraft-body-editor" TextView
+    t =    12.35s     Check for interrupting elements affecting "microdraft-body-editor" TextView
+    t =    12.38s     Synthesize event
+    t =    12.67s     Wait for com.appfactory.storysparkremix to idle
+    t =    13.65s Type ' Revised with a gl...' into Target Application 'com.appfactory.storysparkremix'
+    t =    13.65s     Wait for com.appfactory.storysparkremix to idle
+    t =    13.65s     Find the Target Application 'com.appfactory.storysparkremix'
+    t =    13.70s     Check for interrupting elements affecting "Story Spark Remix" Application
+    t =    13.74s     Synthesize event
+    t =    13.74s         Get number of matches for: Elements containing elements matching predicate 'hasKeyboardFocus == 1'
+    t =    14.44s     Wait for com.appfactory.storysparkremix to idle
+    t =    14.85s Tap "save-microdraft-button" Button
+    t =    14.85s     Wait for com.appfactory.storysparkremix to idle
+    t =    14.86s     Find the "save-microdraft-button" Button
+    t =    14.92s     Check for interrupting elements affecting "save-microdraft-button" Button
+    t =    14.95s     Synthesize event
+    t =    14.95s         Scroll element to visible
+    t =    14.96s         Find the "save-microdraft-button" Button
+    t =    15.00s         Computed hit point {230.33333333333334, 489.83333333333331} after scrolling to visible
+    t =    15.29s     Wait for com.appfactory.storysparkremix to idle
+    t =    16.04s Waiting 5.0s for "Skip This Beat" Button to exist
+    t =    17.11s     Checking `Expect predicate `existsNoRetry == 1` for object "Skip This Beat" Button`
+    t =    17.11s         Checking existence of `"Skip This Beat" Button`
+    t =    17.18s Tap "Skip This Beat" Button
+    t =    17.18s     Wait for com.appfactory.storysparkremix to idle
+    t =    17.18s     Find the "Skip This Beat" Button
+    t =    17.21s     Check for interrupting elements affecting "Skip This Beat" Button
+    t =    17.24s     Synthesize event
+    t =    17.53s     Wait for com.appfactory.storysparkremix to idle
+    t =    17.98s Waiting 5.0s for "delete-draft-button" Button to exist
+    t =    19.05s     Checking `Expect predicate `existsNoRetry == 1` for object "delete-draft-button" Button`
+    t =    19.05s         Checking existence of `"delete-draft-button" Button`
+    t =    19.13s Tap "delete-draft-button" Button
+    t =    19.13s     Wait for com.appfactory.storysparkremix to idle
+    t =    19.13s     Find the "delete-draft-button" Button
+    t =    19.21s     Check for interrupting elements affecting "delete-draft-button" Button
+    t =    19.24s     Synthesize event
+    t =    19.25s         Scroll element to visible
+    t =    19.25s         Find the "delete-draft-button" Button
+    t =    19.33s         Computed hit point {331.33333333333326, 674.16666666666674} after scrolling to visible
+    t =    19.62s     Wait for com.appfactory.storysparkremix to idle
+    t =    20.24s Waiting 5.0s for Alert (First Match) to exist
+    t =    21.31s     Checking `Expect predicate `existsNoRetry == 1` for object Alert (First Match)`
+    t =    21.31s         Checking existence of `Alert (First Match)`
+    t =    21.33s Checking existence of `"This removes the saved microdraft from this device." StaticText`
+    t =    21.35s Tap "Delete" Button
+    t =    21.35s     Wait for com.appfactory.storysparkremix to idle
+    t =    21.36s     Find the "Delete" Button
+    t =    21.37s     Check for interrupting elements affecting "Delete" Button
+    t =    21.41s     Synthesize event
+    t =    21.70s     Wait for com.appfactory.storysparkremix to idle
+    t =    22.02s Waiting 5.0s for Alert (First Match) to not exist
+    t =    23.09s     Checking `Expect predicate `existsNoRetry == 0` for object Alert (First Match)`
+    t =    23.09s         Checking existence of `Alert (First Match)`
+    t =    23.19s Waiting 2.0s for "delete-draft-button" Button to exist
+    t =    24.25s     Checking `Expect predicate `existsNoRetry == 1` for object "delete-draft-button" Button`
+    t =    24.25s         Checking existence of `"delete-draft-button" Button`
+    t =    24.35s         Capturing element debug description
+    t =    25.20s     Checking `Expect predicate `existsNoRetry == 1` for object "delete-draft-button" Button`
+    t =    25.20s         Checking existence of `"delete-draft-button" Button`
+    t =    25.28s         Capturing element debug description
+    t =    25.28s     Checking existence of `"delete-draft-button" Button`
+    t =    25.35s Collecting debug information to assist test failure triage
+    t =    25.35s     Requesting snapshot of accessibility hierarchy for app with pid 31966
+    t =    25.41s Tear Down
+Test Case '-[StorySparkRemixUITests.StorySparkRemixUITests testCreateEditSaveDeleteConfirmationFlow]' passed (25.700 seconds).
+Test Suite 'StorySparkRemixUITests' passed at 2026-07-09 22:48:12.690.
+	 Executed 1 test, with 0 failures (0 unexpected) in 25.700 (25.702) seconds
+Test Suite 'StorySparkRemixUITests.xctest' passed at 2026-07-09 22:48:12.691.
+	 Executed 1 test, with 0 failures (0 unexpected) in 25.700 (25.703) seconds
+Test Suite 'Selected tests' passed at 2026-07-09 22:48:12.691.
+	 Executed 1 test, with 0 failures (0 unexpected) in 25.700 (25.703) seconds
+2026-07-09 22:48:13.015 xcodebuild[31234:309245952] [MT] IDETestOperationsObserverDebug: 27.412 elapsed -- Testing started completed.
+2026-07-09 22:48:13.015 xcodebuild[31234:309245952] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-07-09 22:48:13.015 xcodebuild[31234:309245952] [MT] IDETestOperationsObserverDebug: 27.412 sec, +27.412 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/wangrenzhu/work/story-spark-remix-ios/Evidence/REQ-CRUD-001-attempt2-ui.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started

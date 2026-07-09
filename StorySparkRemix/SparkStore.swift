@@ -9,6 +9,23 @@ enum SparkPersistenceKeys {
     static let premiumUnlocked = "storySparkRemix.premiumUnlocked.v1"
 }
 
+struct DraftDeleteConfirmation {
+    var candidate: MicroDraft?
+
+    mutating func requestDelete(_ draft: MicroDraft) {
+        candidate = draft
+    }
+
+    mutating func confirmDelete(_ draft: MicroDraft, in store: SparkStore) {
+        store.deleteDraft(draft)
+        candidate = nil
+    }
+
+    mutating func cancel() {
+        candidate = nil
+    }
+}
+
 final class SparkStore: ObservableObject {
     @Published private(set) var drafts: [MicroDraft] = []
     @Published var editingSpark: SparkCard?

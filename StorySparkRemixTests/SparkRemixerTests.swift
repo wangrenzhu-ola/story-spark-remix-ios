@@ -52,8 +52,14 @@ final class SparkRemixerTests: XCTestCase {
         store.beginEditingDraft(saved)
         XCTAssertTrue(store.saveDraft(title: "Comet Revised", body: "The comet hummed in Ivo's pocket."))
         let edited = store.drafts[0]
-        store.deleteDraft(edited)
+        var confirmation = DraftDeleteConfirmation()
 
+        confirmation.requestDelete(edited)
+        XCTAssertEqual(confirmation.candidate?.id, edited.id)
+
+        confirmation.confirmDelete(edited, in: store)
+
+        XCTAssertNil(confirmation.candidate)
         XCTAssertTrue(store.drafts.isEmpty)
         XCTAssertTrue(SparkStore(userDefaults: defaults).drafts.isEmpty)
     }

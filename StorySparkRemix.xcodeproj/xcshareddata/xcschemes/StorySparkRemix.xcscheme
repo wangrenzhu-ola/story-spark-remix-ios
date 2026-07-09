@@ -47,6 +47,16 @@
                ReferencedContainer = "container:StorySparkRemix.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DAD1D2342D595D7AB410E968"
+               BuildableName = "StorySparkRemixUITests.xctest"
+               BlueprintName = "StorySparkRemixUITests"
+               ReferencedContainer = "container:StorySparkRemix.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

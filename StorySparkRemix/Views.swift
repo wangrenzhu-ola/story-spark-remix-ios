@@ -110,7 +110,7 @@ struct SparkShelfView: View {
     @Binding var selectedTab: Int
     @Binding var draftTitle: String
     @Binding var draftBody: String
-    @State private var deleteCandidate: MicroDraft?
+    @State private var deleteConfirmation = DraftDeleteConfirmation()
 
     var body: some View {
         NavigationView {
@@ -132,7 +132,7 @@ struct SparkShelfView: View {
                                     draftTitle = draft.title
                                     draftBody = draft.body
                                 } onDelete: {
-                                    deleteCandidate = draft
+                                    deleteConfirmation.requestDelete(draft)
                                 }
                             }
                         }
@@ -142,12 +142,12 @@ struct SparkShelfView: View {
             .listStyle(InsetGroupedListStyle())
             .navigationTitle("Spark Shelf")
             .toolbar { Button("Remix") { selectedTab = 1 } }
-            .alert(item: $deleteCandidate) { draft in
+            .alert(item: $deleteConfirmation.candidate) { draft in
                 Alert(
                     title: Text("Delete \"\(draft.title)\"?"),
                     message: Text("This removes the saved microdraft from this device."),
-                    primaryButton: .destructive(Text("Delete")) { store.deleteDraft(draft) },
-                    secondaryButton: .cancel()
+                    primaryButton: .destructive(Text("Delete")) { deleteConfirmation.confirmDelete(draft, in: store) },
+                    secondaryButton: .cancel { deleteConfirmation.cancel() }
                 )
             }
         }
@@ -191,11 +191,13 @@ struct SprintWriterSection: View {
                 TextField("Title this sprint", text: $draftTitle)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .accessibilityLabel("Microdraft title")
+                    .accessibilityIdentifier("microdraft-title-field")
                 ZStack(alignment: .topLeading) {
                     TextEditor(text: $draftBody)
                         .frame(minHeight: 220)
                         .padding(4)
                         .accessibilityLabel("Microdraft body")
+                        .accessibilityIdentifier("microdraft-body-editor")
                     if draftBody.isEmpty {
                         Text("Start with the moment the object changes hands…")
                             .foregroundColor(.secondary.opacity(0.75))
@@ -221,6 +223,7 @@ struct SprintWriterSection: View {
                         .disabled(!canSave)
                         .opacity(canSave ? 1 : 0.55)
                         .accessibilityHint(canSave ? "Save this microdraft to the shelf" : "Add a title and one line before saving")
+                        .accessibilityIdentifier("save-microdraft-button")
                 }
                 .font(.caption)
                 if let error = store.errorMessage {
@@ -547,11 +550,13 @@ private struct DraftPulseCard: View {
             Text("Next: \(draft.revisionBeat.instruction)").font(.caption).foregroundColor(.secondary)
             HStack {
                 Button("Edit") { onEdit() }
-                    .accessibilityIdentifier("edit-draft-\(draft.id.uuidString)")
+                    .buttonStyle(.borderless)
+                    .accessibilityIdentifier("edit-draft-button")
                 Spacer()
                 Button("Delete") { onDelete() }
+                    .buttonStyle(.borderless)
                     .foregroundColor(.red)
-                    .accessibilityIdentifier("delete-draft-\(draft.id.uuidString)")
+                    .accessibilityIdentifier("delete-draft-button")
             }
         }
         .padding(14)

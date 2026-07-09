@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		035B75E7423FD5E6230F31CF /* StorySparkRemixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9285E682BCAC20D3D07E7B01 /* StorySparkRemixUITests.swift */; };
 		1CF7D4E484ED022C5CDD73D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9949E01B19E54174CC54938 /* ContentView.swift */; };
+		1EA36482837F82AE42DE2279 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBE4437F6F9F86A58B15084 /* Foundation.framework */; };
 		28BF5FDE22E514922C3F0EFF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A336EABDC5A42142BF512 /* Models.swift */; };
 		423BD65BDD67ED2209F7E6D6 /* StorySparkRemixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A044F7A06BBF7C5227B3ADD /* StorySparkRemixApp.swift */; };
 		468A01A1F18930E0BCDEDA25 /* SparkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384931E308A5B0AA09E653B /* SparkStore.swift */; };
@@ -22,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2CA97DBBF0BBE080C1E8273D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1ECCF064AF59672706C52C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3FC3E175C4F7432A0072F70;
+			remoteInfo = StorySparkRemix;
+		};
 		90AB75A6575A2C6B5EDD0289 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A1ECCF064AF59672706C52C0 /* Project object */;
@@ -39,7 +48,9 @@
 		4FBE4437F6F9F86A58B15084 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		69B38DB7AAA41770EA7EC0A2 /* SparkRemixer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SparkRemixer.swift; sourceTree = "<group>"; };
 		84ADE6732334572474EB7B7E /* SparkRemixerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SparkRemixerTests.swift; sourceTree = "<group>"; };
+		87F83679580E6D9995DF788A /* StorySparkRemixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorySparkRemixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A044F7A06BBF7C5227B3ADD /* StorySparkRemixApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StorySparkRemixApp.swift; sourceTree = "<group>"; };
+		9285E682BCAC20D3D07E7B01 /* StorySparkRemixUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StorySparkRemixUITests.swift; sourceTree = "<group>"; };
 		955D89107502158C08AFC9E1 /* StorySparkIntent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StorySparkIntent.swift; sourceTree = "<group>"; };
 		A5B21424679A82F501C92CE0 /* StorySparkRemixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorySparkRemixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A655C99BBE1EBA38AC9D490C /* PremiumStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PremiumStore.swift; sourceTree = "<group>"; };
@@ -48,6 +59,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		176B42B7411EE9615DC0B2B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EA36482837F82AE42DE2279 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D28FE19CBA54B62C6E682EB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3876C239D0FA458F9EC81F2D /* StorySparkRemixUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9285E682BCAC20D3D07E7B01 /* StorySparkRemixUITests.swift */,
+			);
+			name = StorySparkRemixUITests;
+			path = StorySparkRemixUITests;
+			sourceTree = "<group>";
+		};
 		574D3A053A3D5E396A0CDFA6 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +103,7 @@
 				E928499DC3353436230426AD /* StorySparkRemix */,
 				7079C08C09BDCA667C46E5B2 /* StorySparkRemixTests */,
 				47AA7E43F72533125D2D2EA2 /* StorySparkRemix.storekit */,
+				3876C239D0FA458F9EC81F2D /* StorySparkRemixUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +121,7 @@
 			children = (
 				D4942902A26E43F6912C4DE3 /* StorySparkRemix.app */,
 				A5B21424679A82F501C92CE0 /* StorySparkRemixTests.xctest */,
+				87F83679580E6D9995DF788A /* StorySparkRemixUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +178,24 @@
 			productReference = D4942902A26E43F6912C4DE3 /* StorySparkRemix.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DAD1D2342D595D7AB410E968 /* StorySparkRemixUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09CA13A2FD7B02A3D4660CDA /* Build configuration list for PBXNativeTarget "StorySparkRemixUITests" */;
+			buildPhases = (
+				2665679C1CF6C1934B7E2E06 /* Sources */,
+				176B42B7411EE9615DC0B2B2 /* Frameworks */,
+				0297C6A8D4E87225E856AFED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB5A84B5E340C479F0B9998E /* PBXTargetDependency */,
+			);
+			name = StorySparkRemixUITests;
+			productName = StorySparkRemixUITests;
+			productReference = 87F83679580E6D9995DF788A /* StorySparkRemixUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		FE9538EAEA2692C936CAD73B /* StorySparkRemixTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79D19B0CFF517358220E92DA /* Build configuration list for PBXNativeTarget "StorySparkRemixTests" */;
@@ -192,11 +240,19 @@
 			targets = (
 				B3FC3E175C4F7432A0072F70 /* StorySparkRemix */,
 				FE9538EAEA2692C936CAD73B /* StorySparkRemixTests */,
+				DAD1D2342D595D7AB410E968 /* StorySparkRemixUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0297C6A8D4E87225E856AFED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		181FE9BEC6E0E6D116CF5642 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,6 +271,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2665679C1CF6C1934B7E2E06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				035B75E7423FD5E6230F31CF /* StorySparkRemixUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		376B028252C138712107EBDE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,9 +311,30 @@
 			target = B3FC3E175C4F7432A0072F70 /* StorySparkRemix */;
 			targetProxy = 90AB75A6575A2C6B5EDD0289 /* PBXContainerItemProxy */;
 		};
+		FB5A84B5E340C479F0B9998E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = StorySparkRemix;
+			target = B3FC3E175C4F7432A0072F70 /* StorySparkRemix */;
+			targetProxy = 2CA97DBBF0BBE080C1E8273D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3D593F702D9ECE74826CDB18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.storysparkremix.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = StorySparkRemix;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		40FFB29A44064E8A6C5FA227 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -374,6 +459,20 @@
 			};
 			name = Debug;
 		};
+		C0D29A2CD7D0E4136B0F8633 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.storysparkremix.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = StorySparkRemix;
+			};
+			name = Debug;
+		};
 		DBB80ECB7F09FB73AEFFE5CC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -456,6 +555,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		09CA13A2FD7B02A3D4660CDA /* Build configuration list for PBXNativeTarget "StorySparkRemixUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D593F702D9ECE74826CDB18 /* Release */,
+				C0D29A2CD7D0E4136B0F8633 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		1E18197A65D4973E2A583AFF /* Build configuration list for PBXProject "StorySparkRemix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

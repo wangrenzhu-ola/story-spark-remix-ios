@@ -1,0 +1,85 @@
+REQ-CRUD-001 attempt 2 scoped delete confirmation evidence
+patch_spec_ref=/Users/wangrenzhu/.local/state/app-factory-command-center/package_delivery_loops/goal-003-736bc9a7f7/patch_spec_REQ-CRUD-001.json
+scope=single_acceptance_check
+check_id=REQ-CRUD-001
+
+source_changes:
+- StorySparkRemix/SparkStore.swift: DraftDeleteConfirmation tracks shelf delete candidate and confirms deletion.
+- StorySparkRemix/Views.swift: SparkShelfView routes Delete through DraftDeleteConfirmation alert; DraftPulseCard buttons use borderless style so Edit and Delete do not both fire inside the List row; controls have stable accessibility identifiers for runtime evidence.
+- StorySparkRemix/StorySparkRemixApp.swift: -ui-testing launch resets defaults before creating stores, keeping UI runtime evidence deterministic.
+- StorySparkRemixTests/SparkRemixerTests.swift: focused unit test now covers request confirmation candidate -> confirm delete -> persisted empty store.
+- StorySparkRemixUITests/StorySparkRemixUITests.swift: XCUITest creates a microdraft, edits/saves it, opens delete confirmation, confirms Delete, and verifies the delete button is gone.
+
+unit_evidence:
+- Evidence/REQ-CRUD-001-attempt2-xcodebuild.log
+- Evidence/REQ-CRUD-001-attempt2-xcodebuild.exit_code = 0
+
+runtime_ui_evidence:
+- Evidence/REQ-CRUD-001-attempt2-ui.log
+- Evidence/REQ-CRUD-001-attempt2-ui.exit_code = 0
+- Evidence/REQ-CRUD-001-attempt2-runtime.png
+- Evidence/REQ-CRUD-001-attempt2-screenshot.log
+
+--- ui sequence evidence ---
+114:    t =     2.42s Tap "Sprint" Button
+120:    t =     4.15s Waiting 5.0s for "microdraft-body-editor" TextView to exist
+121:    t =     5.21s     Checking `Expect predicate `existsNoRetry == 1` for object "microdraft-body-editor" TextView`
+122:    t =     5.21s         Checking existence of `"microdraft-body-editor" TextView`
+123:    t =     5.26s Tap "microdraft-body-editor" TextView
+125:    t =     5.26s     Find the "microdraft-body-editor" TextView
+126:    t =     5.28s     Check for interrupting elements affecting "microdraft-body-editor" TextView
+136:    t =     6.57s Tap "save-microdraft-button" Button
+138:    t =     6.57s     Find the "save-microdraft-button" Button
+139:    t =     6.60s     Check for interrupting elements affecting "save-microdraft-button" Button
+142:    t =     6.64s         Find the "save-microdraft-button" Button
+154:    t =     9.88s Waiting 5.0s for "edit-draft-button" Button to exist
+155:    t =    10.95s     Checking `Expect predicate `existsNoRetry == 1` for object "edit-draft-button" Button`
+156:    t =    10.95s         Checking existence of `"edit-draft-button" Button`
+157:    t =    11.05s Tap "edit-draft-button" Button
+159:    t =    11.05s     Find the "edit-draft-button" Button
+160:    t =    11.12s     Check for interrupting elements affecting "edit-draft-button" Button
+163:    t =    12.28s Tap "microdraft-body-editor" TextView
+165:    t =    12.29s     Find the "microdraft-body-editor" TextView
+166:    t =    12.35s     Check for interrupting elements affecting "microdraft-body-editor" TextView
+176:    t =    14.85s Tap "save-microdraft-button" Button
+178:    t =    14.86s     Find the "save-microdraft-button" Button
+179:    t =    14.92s     Check for interrupting elements affecting "save-microdraft-button" Button
+182:    t =    14.96s         Find the "save-microdraft-button" Button
+194:    t =    17.98s Waiting 5.0s for "delete-draft-button" Button to exist
+195:    t =    19.05s     Checking `Expect predicate `existsNoRetry == 1` for object "delete-draft-button" Button`
+196:    t =    19.05s         Checking existence of `"delete-draft-button" Button`
+197:    t =    19.13s Tap "delete-draft-button" Button
+199:    t =    19.13s     Find the "delete-draft-button" Button
+200:    t =    19.21s     Check for interrupting elements affecting "delete-draft-button" Button
+203:    t =    19.25s         Find the "delete-draft-button" Button
+206:    t =    20.24s Waiting 5.0s for Alert (First Match) to exist
+207:    t =    21.31s     Checking `Expect predicate `existsNoRetry == 1` for object Alert (First Match)`
+208:    t =    21.31s         Checking existence of `Alert (First Match)`
+209:    t =    21.33s Checking existence of `"This removes the saved microdraft from this device." StaticText`
+210:    t =    21.35s Tap "Delete" Button
+216:    t =    22.02s Waiting 5.0s for Alert (First Match) to not exist
+217:    t =    23.09s     Checking `Expect predicate `existsNoRetry == 0` for object Alert (First Match)`
+218:    t =    23.09s         Checking existence of `Alert (First Match)`
+219:    t =    23.19s Waiting 2.0s for "delete-draft-button" Button to exist
+220:    t =    24.25s     Checking `Expect predicate `existsNoRetry == 1` for object "delete-draft-button" Button`
+221:    t =    24.25s         Checking existence of `"delete-draft-button" Button`
+223:    t =    25.20s     Checking `Expect predicate `existsNoRetry == 1` for object "delete-draft-button" Button`
+224:    t =    25.20s         Checking existence of `"delete-draft-button" Button`
+226:    t =    25.28s     Checking existence of `"delete-draft-button" Button`
+230:Test Case '-[StorySparkRemixUITests.StorySparkRemixUITests testCreateEditSaveDeleteConfirmationFlow]' passed (25.700 seconds).
+231:Test Suite 'StorySparkRemixUITests' passed at 2026-07-09 22:48:12.690.
+233:Test Suite 'StorySparkRemixUITests.xctest' passed at 2026-07-09 22:48:12.691.
+235:Test Suite 'Selected tests' passed at 2026-07-09 22:48:12.691.
+244:** TEST SUCCEEDED **
+
+--- unit evidence ---
+2:    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -project StorySparkRemix.xcodeproj -scheme StorySparkRemix -destination "platform=iOS Simulator,id=BBB7317F-76C6-4BD5-BF4B-EF6ABAEBA1F8" "-only-testing:StorySparkRemixTests/SparkRemixerTests/testShelfDeleteConfirmationPathRemovesEditedDraft"
+34:Test Case '-[StorySparkRemixTests.SparkRemixerTests testShelfDeleteConfirmationPathRemovesEditedDraft]' started.
+35:Test Case '-[StorySparkRemixTests.SparkRemixerTests testShelfDeleteConfirmationPathRemovesEditedDraft]' passed (0.005 seconds).
+36:Test Suite 'SparkRemixerTests' passed at 2026-07-09 22:48:26.562.
+37:	 Executed 1 test, with 0 failures (0 unexpected) in 0.005 (0.006) seconds
+38:Test Suite 'StorySparkRemixTests.xctest' passed at 2026-07-09 22:48:26.562.
+39:	 Executed 1 test, with 0 failures (0 unexpected) in 0.005 (0.006) seconds
+40:Test Suite 'Selected tests' passed at 2026-07-09 22:48:26.562.
+41:	 Executed 1 test, with 0 failures (0 unexpected) in 0.005 (0.007) seconds
+49:** TEST SUCCEEDED **
