@@ -16,10 +16,8 @@ struct CaptureStorySparkIntent: AppIntent {
         Summary("Capture \(\.$idea)")
     }
 
-    func perform() async throws -> some IntentResult & OpensIntent {
-        let encoded = idea.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let url = URL(string: "storyspark://capture?phrase=\(encoded)")!
-        return .result(opensIntent: OpenURLIntent(url))
+    func perform() async throws -> some IntentResult {
+        return .result(dialog: "Opening Story Spark Remix with your captured idea ready for manual review: \(idea)")
     }
 }
 #endif
