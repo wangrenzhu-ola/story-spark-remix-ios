@@ -1,14 +1,23 @@
 import Combine
 import Foundation
 
+enum SparkPersistenceKeys {
+    static let drafts = "storySparkRemix.drafts.v1"
+    static let pendingCapture = "storySparkRemix.pendingCapture.v1"
+    static let sprintMinutes = "storySparkRemix.sprintMinutes.v1"
+    static let localOnlyMode = "storySparkRemix.localOnlyMode.v1"
+    static let premiumUnlocked = "storySparkRemix.premiumUnlocked.v1"
+}
+
 final class SparkStore: ObservableObject {
     @Published private(set) var drafts: [MicroDraft] = []
     @Published var editingSpark: SparkCard?
     @Published var errorMessage: String?
     @Published var showRevisionBeat = false
     @Published var latestRevisionBeat: RevisionBeat?
+    @Published private(set) var editingDraftID: UUID?
 
-    private let storageKey = "storySparkRemix.drafts.v1"
+    private let storageKey = SparkPersistenceKeys.drafts
     private let remixer = SparkRemixer()
     private let userDefaults: UserDefaults
 
@@ -22,15 +31,49 @@ final class SparkStore: ObservableObject {
     }
 
     func beginCapture(phrase: String) {
+        editingDraftID = nil
         editingSpark = remixer.remix(seedPhrase: phrase)
     }
 
+    func savePendingCapture(phrase: String) {
+        userDefaults.set(phrase.trimmingCharacters(in: .whitespacesAndNewlines), forKey: SparkPersistenceKeys.pendingCapture)
+    }
+
+    @discardableResult
+    func consumePendingCapture() -> Bool {
+        guard let phrase = userDefaults.string(forKey: SparkPersistenceKeys.pendingCapture),
+              !phrase.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return false
+        }
+        userDefaults.removeObject(forKey: SparkPersistenceKeys.pendingCapture)
+        beginCapture(phrase: phrase)
+        return true
+    }
+
+    @discardableResult
+    func beginCapture(url: URL) -> Bool {
+        guard url.scheme == "storyspark", url.host == "capture" else { return false }
+        let phrase = URLComponents(url: url, resolvingAgainstBaseURL: false)?
+            .queryItems?
+            .first(where: { $0.name == "phrase" })?
+            .value ?? ""
+        beginCapture(phrase: phrase)
+        return true
+    }
+
     func remix(seedPhrase: String, locked: SparkCard? = nil) {
+        editingDraftID = nil
         editingSpark = remixer.remix(seedPhrase: seedPhrase, locked: locked)
     }
 
     func updateEditingSpark(_ spark: SparkCard) {
+        editingDraftID = nil
         editingSpark = spark
+    }
+
+    func beginEditingDraft(_ draft: MicroDraft) {
+        editingDraftID = draft.id
+        editingSpark = draft.spark
     }
 
     @discardableResult
@@ -46,14 +89,25 @@ final class SparkStore: ObservableObject {
             return false
         }
         let spark = editingSpark ?? todaySpark
-        var draft = MicroDraft(
-            title: cleanTitle,
-            spark: spark,
-            body: cleanBody,
-            notes: notes,
-            status: status,
-            revisionBeat: RevisionBeat(instruction: "")
-        )
+        var draft: MicroDraft
+        if let editingDraftID, let existing = drafts.first(where: { $0.id == editingDraftID }) {
+            draft = existing
+            draft.title = cleanTitle
+            draft.spark = spark
+            draft.body = cleanBody
+            draft.notes = notes
+            draft.status = status
+            draft.updatedAt = Date()
+        } else {
+            draft = MicroDraft(
+                title: cleanTitle,
+                spark: spark,
+                body: cleanBody,
+                notes: notes,
+                status: status,
+                revisionBeat: RevisionBeat(instruction: "")
+            )
+        }
         draft.revisionBeat = remixer.revisionBeat(for: draft)
         upsert(draft)
         latestRevisionBeat = draft.revisionBeat

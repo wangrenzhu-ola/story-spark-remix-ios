@@ -10,14 +10,6 @@ struct StorySparkRemixApp: App {
             ContentView()
                 .environmentObject(store)
                 .environmentObject(premiumStore)
-                .onOpenURL { url in
-                    guard url.scheme == "storyspark", url.host == "capture" else { return }
-                    let phrase = URLComponents(url: url, resolvingAgainstBaseURL: false)?
-                        .queryItems?
-                        .first(where: { $0.name == "phrase" })?
-                        .value ?? ""
-                    store.beginCapture(phrase: phrase)
-                }
         }
     }
 }

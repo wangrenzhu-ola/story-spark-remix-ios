@@ -1,0 +1,40 @@
+{
+  "schema_version": "appfactory.package_full_rewrite_self_check.v1",
+  "run_id": "goal-003-736bc9a7f7",
+  "generated_at": "2026-07-09T22:08:38.129403+08:00",
+  "checklist_ref": "/Users/wangrenzhu/.local/state/app-factory-command-center/package_delivery_loops/goal-003-736bc9a7f7/acceptance_checklist.json",
+  "check_count": 9,
+  "repo_path": "/Users/wangrenzhu/work/story-spark-remix-ios",
+  "command": "xcodebuild -project StorySparkRemix.xcodeproj -scheme StorySparkRemix -destination platform=iOS Simulator,name=iPhone 17 -derivedDataPath build/DerivedData test",
+  "xcodebuild_exit_code": 0,
+  "git_diff_check_exit_code": 0,
+  "static_scan_exit_code": 0,
+  "simulator_runtime": {
+    "log_ref": "/Users/wangrenzhu/work/story-spark-remix-ios/Evidence/simctl-full-rewrite.log",
+    "screenshot_ref": "/Users/wangrenzhu/work/story-spark-remix-ios/Evidence/story-spark-full-rewrite.png",
+    "screenshot_sha256": "04b8c1a3e52b23ce0cb4b614fea9ee4498e9a110433eac555e0daf657dbe5004"
+  },
+  "xcresult_refs": [
+    "/Users/wangrenzhu/work/story-spark-remix-ios/build/DerivedData/Logs/Test/Test-StorySparkRemix-2026.07.09_22-06-51-+0800.xcresult"
+  ],
+  "acceptance_item_ids": [
+    "REQ-CRUD-001",
+    "REQ-PERSIST-001",
+    "REQ-VIS-001",
+    "REQ-EMPTY-001",
+    "REQ-ERROR-001",
+    "REQ-PRIVACY-001",
+    "REQ-PREMIUM-001",
+    "REQ-AI-001",
+    "REQ-APPINTENT-001"
+  ],
+  "source_refs": [
+    "StorySparkRemix/ContentView.swift",
+    "StorySparkRemix/Views.swift",
+    "StorySparkRemix/SparkStore.swift",
+    "StorySparkRemix/PremiumStore.swift",
+    "StorySparkRemix/StorySparkIntent.swift",
+    "StorySparkRemixTests/SparkRemixerTests.swift"
+  ],
+  "blockers": []
+}

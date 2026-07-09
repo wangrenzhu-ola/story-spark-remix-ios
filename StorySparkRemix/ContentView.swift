@@ -25,5 +25,13 @@ struct ContentView: View {
         .sheet(isPresented: $store.showRevisionBeat) {
             RevisionBeatSheet()
         }
+        .onAppear { routePendingCaptureIfNeeded() }
+        .onOpenURL { url in
+            if store.beginCapture(url: url) { selectedTab = 1 }
+        }
+    }
+
+    private func routePendingCaptureIfNeeded() {
+        if store.consumePendingCapture() { selectedTab = 1 }
     }
 }

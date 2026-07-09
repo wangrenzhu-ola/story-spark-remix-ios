@@ -27,6 +27,8 @@ struct TodaySparkView: View {
 
 struct RemixLabView: View {
     @EnvironmentObject private var store: SparkStore
+    @EnvironmentObject private var premiumStore: PremiumStore
+    @AppStorage(SparkPersistenceKeys.sprintMinutes) private var sprintMinutes = 12
     @Binding var selectedTab: Int
     @Binding var draftTitle: String
     @Binding var draftBody: String
@@ -64,7 +66,10 @@ struct RemixLabView: View {
                         SparkCardEditor(spark: spark) { changed in
                             store.updateEditingSpark(changed)
                         }
-                        Button("Start 12-Minute Sprint") { startSprint(with: spark) }
+                        PremiumDeckTeaser(isUnlocked: premiumStore.isPremiumUnlocked) {
+                            Task { await premiumStore.loadProducts() }
+                        }
+                        Button("Start \(sprintMinutes)-Minute Sprint") { startSprint(with: spark) }
                             .buttonStyle(PrimarySparkButtonStyle())
                     } else {
                         EmptyNotebookView(title: "No SparkCard yet", message: "Write one messy sentence or tap a starter. We’ll split it into editable story constraints.")
@@ -101,6 +106,7 @@ struct RemixLabView: View {
 
 struct SparkShelfView: View {
     @EnvironmentObject private var store: SparkStore
+    @AppStorage(SparkPersistenceKeys.sprintMinutes) private var sprintMinutes = 12
     @Binding var selectedTab: Int
     @Binding var draftTitle: String
     @Binding var draftBody: String
@@ -111,14 +117,18 @@ struct SparkShelfView: View {
             List {
                 SprintWriterSection(draftTitle: $draftTitle, draftBody: $draftBody)
                 if store.drafts.isEmpty {
-                    EmptyNotebookView(title: "Your shelf is blank", message: "Create the first SparkCard, sprint for twelve minutes, and save a micro-fiction draft.")
-                        .listRowBackground(Color.clear)
+                    EmptyNotebookView(
+                        title: "Your shelf is blank",
+                        message: "Create the first SparkCard, sprint for \(sprintMinutes) minutes, and save a micro-fiction draft.",
+                        actionTitle: "Open Remix Lab"
+                    ) { selectedTab = 1 }
+                    .listRowBackground(Color.clear)
                 } else {
                     ForEach(DraftStatus.allCases) { status in
                         Section(header: Text(status.rawValue)) {
                             ForEach(store.drafts.filter { $0.status == status }) { draft in
                                 DraftPulseCard(draft: draft) {
-                                    store.updateEditingSpark(draft.spark)
+                                    store.beginEditingDraft(draft)
                                     draftTitle = draft.title
                                     draftBody = draft.body
                                 } onDelete: {
@@ -146,6 +156,7 @@ struct SparkShelfView: View {
 
 struct SprintWriterSection: View {
     @EnvironmentObject private var store: SparkStore
+    @AppStorage(SparkPersistenceKeys.sprintMinutes) private var sprintMinutes = 12
     @Binding var draftTitle: String
     @Binding var draftBody: String
     @State private var saveMessage: String?
@@ -163,10 +174,10 @@ struct SprintWriterSection: View {
         Section {
             VStack(alignment: .leading, spacing: 14) {
                 HStack(alignment: .firstTextBaseline) {
-                    Text("12-Minute Sprint")
+                    Text("\(sprintMinutes)-Minute Sprint")
                         .font(.headline)
                     Spacer()
-                    Label("12 min target", systemImage: "timer")
+                    Label("\(sprintMinutes) min target", systemImage: "timer")
                         .font(.caption.weight(.semibold))
                         .foregroundColor(.secondary)
                 }
@@ -254,19 +265,32 @@ struct RevisionBeatSheet: View {
 
 struct SettingsView: View {
     @EnvironmentObject private var premiumStore: PremiumStore
+    @AppStorage(SparkPersistenceKeys.sprintMinutes) private var sprintMinutes = 12
+    @AppStorage(SparkPersistenceKeys.localOnlyMode) private var localOnlyMode = true
 
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Privacy")) {
-                    Text("Your ideas, SparkCards, drafts, and revision beats stay on this device unless you choose to export them in a future version.")
+                    Text("Your ideas, SparkCards, drafts, preferences, and revision beats stay on this device unless you choose to export them in a future version.")
+                    Toggle("Local-only writing mode", isOn: $localOnlyMode)
                     Text("Starter spark decks are bundled local examples and are editable before use.")
                     Text("Locale: English (United States).")
                 }
+                Section(header: Text("Writing Preferences")) {
+                    Picker("Sprint length", selection: $sprintMinutes) {
+                        Text("8 minutes").tag(8)
+                        Text("12 minutes").tag(12)
+                        Text("20 minutes").tag(20)
+                    }
+                }
                 Section(header: Text("Premium")) {
                     Text("Premium will unlock expanded decks, unlimited saved sparks, and advanced style packs. The core writing sprint stays free.")
+                    Text(premiumStore.isPremiumUnlocked ? "Premium is unlocked on this device." : "Premium is locked. Purchases and restores use StoreKit 2 only.")
+                        .foregroundColor(.secondary)
                     if let message = premiumStore.unavailableMessage { Text(message).foregroundColor(.secondary) }
                     Button("Check Premium") { Task { await premiumStore.loadProducts() } }
+                    Button("Unlock Premium") { Task { await premiumStore.purchasePremium() } }
                     Button("Restore Purchases") { Task { await premiumStore.restorePurchases() } }
                 }
             }
@@ -385,6 +409,28 @@ private struct CaptureIdeaCard: View {
                 .buttonStyle(PrimarySparkButtonStyle())
                 .disabled(!canBuild)
                 .opacity(canBuild ? 1 : 0.55)
+        }
+        .padding()
+        .background(Color.paperCream)
+        .cornerRadius(24)
+    }
+}
+
+private struct PremiumDeckTeaser: View {
+    let isUnlocked: Bool
+    let onCheckPremium: () -> Void
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Label(isUnlocked ? "Premium deck unlocked" : "Premium deck preview", systemImage: "crown")
+                .font(.headline)
+            Text(isUnlocked ? "Expanded genre decks are available for this sprint." : "Locked genre decks stay visible as a teaser. Unlock through StoreKit 2 or keep using the free local deck.")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+            if !isUnlocked {
+                Button("Check Premium Access", action: onCheckPremium)
+                    .buttonStyle(PrimarySparkButtonStyle())
+            }
         }
         .padding()
         .background(Color.paperCream)
@@ -517,6 +563,8 @@ private struct DraftPulseCard: View {
 private struct EmptyNotebookView: View {
     let title: String
     let message: String
+    var actionTitle: String? = nil
+    var action: (() -> Void)? = nil
 
     var body: some View {
         VStack(spacing: 12) {
@@ -525,6 +573,10 @@ private struct EmptyNotebookView: View {
                 .foregroundColor(.emberGold)
             Text(title).font(.headline)
             Text(message).font(.subheadline).multilineTextAlignment(.center).foregroundColor(.secondary)
+            if let actionTitle, let action {
+                Button(actionTitle, action: action)
+                    .buttonStyle(PrimarySparkButtonStyle())
+            }
         }
         .frame(maxWidth: .infinity)
         .padding(28)

@@ -23,6 +23,55 @@ final class SparkRemixerTests: XCTestCase {
         XCTAssertEqual(reloaded.drafts.count, 1)
     }
 
+
+    func testEditingExistingDraftUpdatesInsteadOfDuplicating() {
+        let defaults = UserDefaults(suiteName: "StorySparkRemixEditDraftTests")!
+        defaults.removePersistentDomain(forName: "StorySparkRemixEditDraftTests")
+        let store = SparkStore(userDefaults: defaults)
+        store.remix(seedPhrase: "clockwork rain")
+        XCTAssertTrue(store.saveDraft(title: "Clock", body: "Rain clicked against the roof."))
+        let saved = store.drafts[0]
+
+        store.beginEditingDraft(saved)
+        XCTAssertTrue(store.saveDraft(title: "Clock Revised", body: "Rain clicked twice against the roof."))
+
+        XCTAssertEqual(store.drafts.count, 1)
+        XCTAssertEqual(store.drafts[0].id, saved.id)
+        XCTAssertEqual(store.drafts[0].title, "Clock Revised")
+        XCTAssertEqual(store.drafts[0].body, "Rain clicked twice against the roof.")
+    }
+
+    func testPendingCaptureHandsOffToEditableSparkOnce() {
+        let defaults = UserDefaults(suiteName: "StorySparkRemixPendingCaptureTests")!
+        defaults.removePersistentDomain(forName: "StorySparkRemixPendingCaptureTests")
+        let store = SparkStore(userDefaults: defaults)
+
+        store.savePendingCapture(phrase: "orange static under the pier")
+
+        XCTAssertTrue(store.consumePendingCapture())
+        XCTAssertEqual(store.editingSpark?.seedPhrase, "orange static under the pier")
+        XCTAssertFalse(store.consumePendingCapture())
+    }
+
+    func testCaptureURLRoutesToEditableSpark() {
+        let store = SparkStore(userDefaults: UserDefaults(suiteName: "StorySparkRemixURLCaptureTests")!)
+        let url = URL(string: "storyspark://capture?phrase=paper%20moon")!
+
+        XCTAssertTrue(store.beginCapture(url: url))
+        XCTAssertEqual(store.editingSpark?.seedPhrase, "paper moon")
+        XCTAssertFalse(store.beginCapture(url: URL(string: "https://example.com/capture")!))
+    }
+
+    func testPremiumEntitlementReloadsFromLocalDefaults() {
+        let defaults = UserDefaults(suiteName: "StorySparkRemixPremiumTests")!
+        defaults.removePersistentDomain(forName: "StorySparkRemixPremiumTests")
+        defaults.set(true, forKey: SparkPersistenceKeys.premiumUnlocked)
+
+        let premium = PremiumStore(userDefaults: defaults)
+
+        XCTAssertTrue(premium.isPremiumUnlocked)
+    }
+
     func testInvalidSavePreservesErrorState() {
         let defaults = UserDefaults(suiteName: "StorySparkRemixFailureTests")!
         defaults.removePersistentDomain(forName: "StorySparkRemixFailureTests")

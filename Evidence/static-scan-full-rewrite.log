@@ -1,0 +1,11 @@
+{
+  "app_intent_source_present": true,
+  "contains_cjk_user_visible_source": false,
+  "contains_kimi_or_api_key_in_app_source": false,
+  "delete_confirmation_source_present": true,
+  "editable_app_intent_handoff_present": true,
+  "local_persistence_source_present": true,
+  "premium_entitlement_persists": true,
+  "regression_tests_cover_full_rewrite_paths": true,
+  "storekit2_source_present": true
+}

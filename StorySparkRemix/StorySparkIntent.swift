@@ -17,6 +17,7 @@ struct CaptureStorySparkIntent: AppIntent {
     }
 
     func perform() async throws -> some IntentResult {
+        UserDefaults.standard.set(idea.trimmingCharacters(in: .whitespacesAndNewlines), forKey: SparkPersistenceKeys.pendingCapture)
         return .result(dialog: "Opening Story Spark Remix with your captured idea ready for manual review: \(idea)")
     }
 }
