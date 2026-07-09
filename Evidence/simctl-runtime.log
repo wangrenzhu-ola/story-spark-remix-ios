@@ -1,0 +1,7 @@
+device=93FD8455-C95F-4F7F-ABB3-0EA67A6E43EA
+app=/Users/wangrenzhu/work/story-spark-remix-ios/build/DerivedData/Build/Products/Debug-iphonesimulator/StorySparkRemix.app
+com.appfactory.storysparkremix: 23937
+Detected file type from extension: PNG
+Note: No display specified. Defaulting to display: E2071682-FEB8-4EED-985F-15B6BC9C1856 (screenID: 1, name: LCD)
+Wrote screenshot to: /Users/wangrenzhu/work/story-spark-remix-ios/Evidence/story-spark-runtime.png
+-rw-r--r--@ 1 wangrenzhu  staff   1.6M Jul  9 18:48 /Users/wangrenzhu/work/story-spark-remix-ios/Evidence/story-spark-runtime.png

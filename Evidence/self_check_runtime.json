@@ -1,0 +1,48 @@
+{
+  "schema_version": "appfactory.rough_app_self_check.v1",
+  "implementation_mode": "agent_native_build_loop",
+  "generator_template_substitution_allowed": false,
+  "normal_mode_preflight_visible": true,
+  "command": "xcodebuild -project StorySparkRemix.xcodeproj -scheme StorySparkRemix -destination platform=iOS Simulator,name=iPhone 17 -derivedDataPath build/DerivedData test",
+  "exit_code": 0,
+  "xcodebuild": "Xcode 26.6\nBuild version 17F113",
+  "simulator": "iPhone 17 / booted device from xcodebuild and simctl",
+  "install": {
+    "command": "xcrun simctl install <booted> StorySparkRemix.app",
+    "exit_code": 0
+  },
+  "launch": {
+    "command": "xcrun simctl launch <booted> com.appfactory.storysparkremix",
+    "exit_code": 0
+  },
+  "runtime_readback_refs": [
+    "/Users/wangrenzhu/work/story-spark-remix-ios/Evidence/simctl-runtime.log",
+    "/Users/wangrenzhu/work/story-spark-remix-ios/Evidence/story-spark-runtime.png"
+  ],
+  "xcode_test_log_ref": "/Users/wangrenzhu/work/story-spark-remix-ios/Evidence/xcodebuild-test.log",
+  "xcresult_refs": [
+    "/Users/wangrenzhu/work/story-spark-remix-ios/build/DerivedData/Logs/Test/Test-StorySparkRemix-2026.07.09_18-47-25-+0800.xcresult"
+  ],
+  "source_files": [
+    "StorySparkRemix/ContentView.swift",
+    "StorySparkRemix/Models.swift",
+    "StorySparkRemix/PremiumStore.swift",
+    "StorySparkRemix/SparkRemixer.swift",
+    "StorySparkRemix/SparkStore.swift",
+    "StorySparkRemix/StorySparkIntent.swift",
+    "StorySparkRemix/StorySparkRemixApp.swift",
+    "StorySparkRemix/Views.swift"
+  ],
+  "test_files": [
+    "StorySparkRemixTests/SparkRemixerTests.swift"
+  ],
+  "static_scan": {
+    "contains_cjk_user_visible_source": false,
+    "contains_kimi_or_api_key": false,
+    "storekit2_source_present": true,
+    "app_intent_source_present": true,
+    "local_persistence_source_present": true,
+    "delete_confirmation_source_present": true
+  },
+  "screenshot_sha256": "b13b21409fd8582fcebb7a329f404faf962520a9638e8376675075a798206161"
+}
