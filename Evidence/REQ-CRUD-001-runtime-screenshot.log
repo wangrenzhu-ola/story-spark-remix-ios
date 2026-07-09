@@ -1,0 +1,10 @@
+REQ-CRUD-001 runtime screenshot attempt
+timestamp_utc=2026-07-09T14:36:02Z
+Monitoring boot status for iPhone 17 (BBB7317F-76C6-4BD5-BF4B-EF6ABAEBA1F8).
+Device already booted, nothing to do.
+
+com.appfactory.storysparkremix: 91751
+Detected file type from extension: PNG
+Note: No display specified. Defaulting to display: E8EF8833-D39C-48F3-A999-957FC090B9A8 (screenID: 1, name: LCD)
+Wrote screenshot to: /Users/wangrenzhu/work/story-spark-remix-ios/Evidence/REQ-CRUD-001-runtime-shelf-reachability.png
+8a23ba6ed79251f133354eb41f962e3ace0baab013d4ec3ff8727387e481b087  Evidence/REQ-CRUD-001-runtime-shelf-reachability.png

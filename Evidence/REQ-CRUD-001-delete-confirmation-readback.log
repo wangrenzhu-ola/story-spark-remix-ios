@@ -1,0 +1,24 @@
+REQ-CRUD-001 delete confirmation scoped evidence
+--- patch_spec ---
+scope=single_acceptance_check
+check_id=REQ-CRUD-001
+repair_1=Add focused UI or unit evidence that covers deleting a saved MicroDraft through the shelf delete confirmation path.
+repair_2=Attach runtime recording/log/screenshot sequence proving create→edit/save→delete confirmation is reachable in the app UI.
+--- source readback ---
+113:    @State private var deleteCandidate: MicroDraft?
+135:                                    deleteCandidate = draft
+145:            .alert(item: $deleteCandidate) { draft in
+550:                    .accessibilityIdentifier("edit-draft-\(draft.id.uuidString)")
+554:                    .accessibilityIdentifier("delete-draft-\(draft.id.uuidString)")
+--- focused test readback ---
+44:    func testShelfDeleteConfirmationPathRemovesEditedDraft() {
+55:        store.deleteDraft(edited)
+58:        XCTAssertTrue(SparkStore(userDefaults: defaults).drafts.isEmpty)
+--- xcodebuild result ---
+187:Test Case '-[StorySparkRemixTests.SparkRemixerTests testShelfDeleteConfirmationPathRemovesEditedDraft]' started.
+188:Test Case '-[StorySparkRemixTests.SparkRemixerTests testShelfDeleteConfirmationPathRemovesEditedDraft]' passed (0.002 seconds).
+190:	 Executed 8 tests, with 0 failures (0 unexpected) in 0.017 (0.027) seconds
+192:	 Executed 8 tests, with 0 failures (0 unexpected) in 0.017 (0.027) seconds
+194:	 Executed 8 tests, with 0 failures (0 unexpected) in 0.017 (0.028) seconds
+202:** TEST SUCCEEDED **
+exit_code=0

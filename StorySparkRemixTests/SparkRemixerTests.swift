@@ -41,6 +41,23 @@ final class SparkRemixerTests: XCTestCase {
         XCTAssertEqual(store.drafts[0].body, "Rain clicked twice against the roof.")
     }
 
+    func testShelfDeleteConfirmationPathRemovesEditedDraft() {
+        let defaults = UserDefaults(suiteName: "StorySparkRemixDeleteDraftTests")!
+        defaults.removePersistentDomain(forName: "StorySparkRemixDeleteDraftTests")
+        let store = SparkStore(userDefaults: defaults)
+        store.remix(seedPhrase: "glass comet")
+        XCTAssertTrue(store.saveDraft(title: "Comet", body: "The comet fit in Ivo's pocket."))
+        let saved = store.drafts[0]
+
+        store.beginEditingDraft(saved)
+        XCTAssertTrue(store.saveDraft(title: "Comet Revised", body: "The comet hummed in Ivo's pocket."))
+        let edited = store.drafts[0]
+        store.deleteDraft(edited)
+
+        XCTAssertTrue(store.drafts.isEmpty)
+        XCTAssertTrue(SparkStore(userDefaults: defaults).drafts.isEmpty)
+    }
+
     func testPendingCaptureHandsOffToEditableSparkOnce() {
         let defaults = UserDefaults(suiteName: "StorySparkRemixPendingCaptureTests")!
         defaults.removePersistentDomain(forName: "StorySparkRemixPendingCaptureTests")

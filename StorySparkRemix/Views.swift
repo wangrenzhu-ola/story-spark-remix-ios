@@ -547,9 +547,11 @@ private struct DraftPulseCard: View {
             Text("Next: \(draft.revisionBeat.instruction)").font(.caption).foregroundColor(.secondary)
             HStack {
                 Button("Edit") { onEdit() }
+                    .accessibilityIdentifier("edit-draft-\(draft.id.uuidString)")
                 Spacer()
                 Button("Delete") { onDelete() }
                     .foregroundColor(.red)
+                    .accessibilityIdentifier("delete-draft-\(draft.id.uuidString)")
             }
         }
         .padding(14)
