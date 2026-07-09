@@ -76,7 +76,7 @@ struct SparkShelfView: View {
                         .listRowBackground(Color.clear)
                 } else {
                     ForEach(DraftStatus.allCases) { status in
-                        Section(status.rawValue) {
+                        Section(header: Text(status.rawValue)) {
                             ForEach(store.drafts.filter { $0.status == status }) { draft in
                                 DraftPulseCard(draft: draft) {
                                     store.updateEditingSpark(draft.spark)
@@ -135,7 +135,7 @@ struct SprintWriterSection: View {
                     Spacer()
                     Button("Simulate Save Failure") { store.simulateSaveFailure() }
                     Button("Save Draft") { _ = store.saveDraft(title: draftTitle, body: draftBody) }
-                        .buttonStyle(.borderedProminent)
+                        .buttonStyle(PrimarySparkButtonStyle())
                 }
             }
         }
@@ -170,12 +170,12 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section("Privacy") {
+                Section(header: Text("Privacy")) {
                     Text("Your ideas, SparkCards, drafts, and revision beats stay on this device unless you choose to export them in a future version.")
                     Text("Starter spark decks are bundled local examples and are editable before use.")
                     Text("Locale: English (United States).")
                 }
-                Section("Premium") {
+                Section(header: Text("Premium")) {
                     Text("Premium will unlock expanded decks, unlimited saved sparks, and advanced style packs. The core writing sprint stays free.")
                     if let message = premiumStore.unavailableMessage { Text(message).foregroundColor(.secondary) }
                     Button("Check Premium") { Task { await premiumStore.loadProducts() } }
@@ -308,7 +308,8 @@ private struct DraftPulseCard: View {
             HStack {
                 Button("Edit") { onEdit() }
                 Spacer()
-                Button("Delete", role: .destructive) { onDelete() }
+                Button("Delete") { onDelete() }
+                    .foregroundColor(.red)
             }
         }
         .padding(.vertical, 8)
