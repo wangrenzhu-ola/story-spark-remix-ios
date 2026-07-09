@@ -1,0 +1,10 @@
+{
+  "schema_version": "appfactory.ios_package_manifest.v1",
+  "product_name": "Story Spark Remix",
+  "bundle_identifier": "com.appfactory.storysparkremix",
+  "minimum_ios": "14.0",
+  "swift_version": "5.0",
+  "uses_storekit2": true,
+  "uses_app_intents": true,
+  "locale": "en-US"
+}

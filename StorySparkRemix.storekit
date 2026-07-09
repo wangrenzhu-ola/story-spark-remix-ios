@@ -1,0 +1,20 @@
+{
+  "identifier" : "4C2EAA79-13ED-4978-B123-AFB7D6C50001",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "1F4D82CB-2D04-49E7-8654-StorySpark",
+      "localizations" : [
+        { "description" : "Unlock expanded decks and unlimited saved sparks.", "displayName" : "Story Spark Premium", "locale" : "en_US" }
+      ],
+      "productID" : "storysparkremix.premium.unlimited",
+      "referenceName" : "Story Spark Premium",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : { "_applicationInternalID" : "0" },
+  "subscriptionGroups" : [],
+  "version" : { "major" : 4, "minor" : 0 }
+}
