@@ -28,50 +28,82 @@ struct TodaySparkView: View {
 struct RemixLabView: View {
     @EnvironmentObject private var store: SparkStore
     @Binding var selectedTab: Int
+    @Binding var draftTitle: String
+    @Binding var draftBody: String
     @State private var seedPhrase = ""
+
+    private let starterPhrases = [
+        "A key arrives with tomorrow’s date.",
+        "The last train carries a paper moon.",
+        "A cracked teacup starts answering questions."
+    ]
+
+    private var canBuildSpark: Bool {
+        !seedPhrase.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 16) {
-                HStack(alignment: .top) {
-                    DarkPageHeader(title: "Remix Lab", subtitle: "Turn one phrase into editable story constraints")
-                    Spacer()
-                    Button("Use Starter") { store.remix(seedPhrase: "A key arrives with tomorrow’s date.") }
-                        .foregroundColor(.emberGold)
-                        .accessibilityLabel("Use starter spark")
-                }
-                TextField("Type one idea or paste a dictated phrase", text: $seedPhrase)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .accessibilityLabel("Manual spark phrase")
-                Button("Build Editable SparkCard") { buildSpark() }
-                    .buttonStyle(PrimarySparkButtonStyle())
-                if let spark = store.editingSpark {
-                    SparkCardEditor(spark: spark) { changed in
-                        store.updateEditingSpark(changed)
+            ScrollView {
+                VStack(alignment: .leading, spacing: 18) {
+                    HStack(alignment: .top) {
+                        DarkPageHeader(title: "Remix Lab", subtitle: "Capture one rough idea. Shape the constraints before you sprint.")
+                        Spacer()
+                        Button("Done") { hideKeyboard() }
+                            .foregroundColor(.emberGold)
+                            .accessibilityLabel("Dismiss keyboard")
                     }
-                    Button("Start 12-Minute Sprint") { selectedTab = 2 }
-                        .buttonStyle(PrimarySparkButtonStyle())
-                } else {
-                    EmptyNotebookView(title: "No SparkCard yet", message: "Capture a phrase or remix today’s starter to begin.")
+                    CaptureIdeaCard(
+                        seedPhrase: $seedPhrase,
+                        starterPhrases: starterPhrases,
+                        onPickStarter: applyStarter,
+                        onBuild: buildSpark,
+                        canBuild: canBuildSpark
+                    )
+                    if let spark = store.editingSpark {
+                        SparkCardEditor(spark: spark) { changed in
+                            store.updateEditingSpark(changed)
+                        }
+                        Button("Start 12-Minute Sprint") { startSprint(with: spark) }
+                            .buttonStyle(PrimarySparkButtonStyle())
+                    } else {
+                        EmptyNotebookView(title: "No SparkCard yet", message: "Write one messy sentence or tap a starter. We’ll split it into editable story constraints.")
+                    }
                 }
-                Spacer(minLength: 0)
+                .padding()
             }
-            .padding()
             .background(Color.midnightPaper.ignoresSafeArea())
             .navigationBarHidden(true)
         }
     }
 
+    private func applyStarter(_ phrase: String) {
+        seedPhrase = phrase
+        store.remix(seedPhrase: phrase)
+    }
+
     private func buildSpark() {
+        guard canBuildSpark else { return }
         store.remix(seedPhrase: seedPhrase)
+        hideKeyboard()
+    }
+
+    private func startSprint(with spark: SparkCard) {
+        draftTitle = spark.title
+        draftBody = "Start with: \(spark.sentenceConstraint)\n\n\(spark.seedPhrase)\n\n"
+        selectedTab = 2
+    }
+
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
 struct SparkShelfView: View {
     @EnvironmentObject private var store: SparkStore
     @Binding var selectedTab: Int
-    @State private var draftBody = ""
-    @State private var draftTitle = "Midnight Draft"
+    @Binding var draftTitle: String
+    @Binding var draftBody: String
     @State private var deleteCandidate: MicroDraft?
 
     var body: some View {
@@ -116,35 +148,84 @@ struct SprintWriterSection: View {
     @EnvironmentObject private var store: SparkStore
     @Binding var draftTitle: String
     @Binding var draftBody: String
-    @State private var minutesRemaining = 12
+    @State private var saveMessage: String?
+
+    private var wordCount: Int {
+        draftBody.split { $0.isWhitespace || $0.isNewline }.count
+    }
+
+    private var canSave: Bool {
+        !draftTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+        !draftBody.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
 
     var body: some View {
         Section {
-            VStack(alignment: .leading, spacing: 12) {
-                Text("12-Minute Sprint")
-                    .font(.headline)
-                if let spark = store.editingSpark {
-                    SparkSummary(spark: spark)
+            VStack(alignment: .leading, spacing: 14) {
+                HStack(alignment: .firstTextBaseline) {
+                    Text("12-Minute Sprint")
+                        .font(.headline)
+                    Spacer()
+                    Label("12 min target", systemImage: "timer")
+                        .font(.caption.weight(.semibold))
+                        .foregroundColor(.secondary)
                 }
-                TextField("Draft title", text: $draftTitle)
+                if let spark = store.editingSpark {
+                    SprintSparkCard(spark: spark)
+                } else {
+                    Text("No SparkCard selected yet. Open Remix Lab first, or save with today's starter.")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                TextField("Title this sprint", text: $draftTitle)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .accessibilityLabel("Microdraft title")
-                TextEditor(text: $draftBody)
-                    .frame(minHeight: 180)
-                    .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orange.opacity(0.25)))
-                    .accessibilityLabel("Microdraft body")
+                ZStack(alignment: .topLeading) {
+                    TextEditor(text: $draftBody)
+                        .frame(minHeight: 220)
+                        .padding(4)
+                        .accessibilityLabel("Microdraft body")
+                    if draftBody.isEmpty {
+                        Text("Start with the moment the object changes hands…")
+                            .foregroundColor(.secondary.opacity(0.75))
+                            .padding(.top, 12)
+                            .padding(.leading, 10)
+                            .allowsHitTesting(false)
+                    }
+                }
+                .background(Color.white)
+                .cornerRadius(14)
+                .overlay(RoundedRectangle(cornerRadius: 14).stroke(Color.emberGold.opacity(0.35)))
+                if let saveMessage = saveMessage {
+                    Label(saveMessage, systemImage: "checkmark.circle.fill")
+                        .font(.footnote.weight(.semibold))
+                        .foregroundColor(.green)
+                        .accessibilityLabel(saveMessage)
+                }
+                HStack {
+                    Text("\(wordCount) words")
+                    Spacer()
+                    Button(saveMessage == nil ? "Save Draft" : "Saved") { saveDraft() }
+                        .buttonStyle(PrimarySparkButtonStyle())
+                        .disabled(!canSave)
+                        .opacity(canSave ? 1 : 0.55)
+                        .accessibilityHint(canSave ? "Save this microdraft to the shelf" : "Add a title and one line before saving")
+                }
+                .font(.caption)
                 if let error = store.errorMessage {
                     Text(error)
+                        .font(.footnote.weight(.semibold))
                         .foregroundColor(.red)
                         .accessibilityLabel("Save error: \(error)")
                 }
-                HStack {
-                    Label("\(minutesRemaining) minutes", systemImage: "timer")
-                    Spacer()
-                    Button("Simulate Save Failure") { store.simulateSaveFailure() }
-                    Button("Save Draft") { _ = store.saveDraft(title: draftTitle, body: draftBody) }
-                        .buttonStyle(PrimarySparkButtonStyle())
-                }
             }
+            .padding(.vertical, 8)
+        }
+    }
+
+    private func saveDraft() {
+        if store.saveDraft(title: draftTitle, body: draftBody) {
+            saveMessage = "Saved to Shelf. Revision beat is ready."
         }
     }
 }
@@ -256,46 +337,134 @@ private struct InkSparkHero: View {
     }
 }
 
+private struct CaptureIdeaCard: View {
+    @Binding var seedPhrase: String
+    let starterPhrases: [String]
+    let onPickStarter: (String) -> Void
+    let onBuild: () -> Void
+    let canBuild: Bool
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("1. Catch the raw spark")
+                .font(.headline)
+            Text("Messy is fine. One concrete image is enough.")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+            ZStack(alignment: .topLeading) {
+                TextEditor(text: $seedPhrase)
+                    .frame(minHeight: 96)
+                    .padding(4)
+                    .accessibilityLabel("Raw story idea")
+                if seedPhrase.isEmpty {
+                    Text("Example: A commuter finds a ticket stamped tomorrow.")
+                        .foregroundColor(.secondary.opacity(0.75))
+                        .padding(.top, 12)
+                        .padding(.leading, 10)
+                        .allowsHitTesting(false)
+                }
+            }
+            .background(Color.white)
+            .cornerRadius(14)
+            .overlay(RoundedRectangle(cornerRadius: 14).stroke(Color.emberGold.opacity(0.3)))
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(starterPhrases, id: \.self) { phrase in
+                        Button(phrase) { onPickStarter(phrase) }
+                            .font(.caption.weight(.semibold))
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 8)
+                            .background(Color.emberGold.opacity(0.18))
+                            .foregroundColor(.black)
+                            .cornerRadius(999)
+                            .accessibilityLabel("Starter idea, \(phrase)")
+                    }
+                }
+            }
+            Button("Turn Into SparkCard") { onBuild() }
+                .buttonStyle(PrimarySparkButtonStyle())
+                .disabled(!canBuild)
+                .opacity(canBuild ? 1 : 0.55)
+        }
+        .padding()
+        .background(Color.paperCream)
+        .cornerRadius(24)
+    }
+}
+
 private struct SparkCardEditor: View {
     var spark: SparkCard
     var onChange: (SparkCard) -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            EditableChip(label: "Genre", value: spark.genre) { update(genre: $0) }
-            EditableChip(label: "Pressure", value: spark.characterPressure) { update(pressure: $0) }
-            EditableChip(label: "Odd Object", value: spark.oddObject) { update(object: $0) }
-            EditableChip(label: "Twist", value: spark.twist) { update(twist: $0) }
-            EditableChip(label: "Constraint", value: spark.sentenceConstraint) { update(constraint: $0) }
+        VStack(alignment: .leading, spacing: 12) {
+            Text("2. Tune the constraints")
+                .font(.headline)
+            Text("Each field stays editable before the sprint starts.")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+            IngredientInputRow(label: "Genre", icon: "die.face.5", text: binding(\.genre))
+            IngredientInputRow(label: "Pressure", icon: "person.crop.circle.badge.exclamationmark", text: binding(\.characterPressure))
+            IngredientInputRow(label: "Odd Object", icon: "shippingbox", text: binding(\.oddObject))
+            IngredientInputRow(label: "Twist", icon: "arrow.triangle.2.circlepath", text: binding(\.twist))
+            IngredientInputRow(label: "Sentence Constraint", icon: "text.quote", text: binding(\.sentenceConstraint))
         }
         .padding()
         .background(Color.paperCream)
-        .cornerRadius(22)
+        .cornerRadius(24)
     }
 
-    private func update(genre: String? = nil, pressure: String? = nil, object: String? = nil, twist: String? = nil, constraint: String? = nil) {
-        var changed = spark
-        if let genre = genre { changed.genre = genre }
-        if let pressure = pressure { changed.characterPressure = pressure }
-        if let object = object { changed.oddObject = object }
-        if let twist = twist { changed.twist = twist }
-        if let constraint = constraint { changed.sentenceConstraint = constraint }
-        onChange(changed)
+    private func binding(_ keyPath: WritableKeyPath<SparkCard, String>) -> Binding<String> {
+        Binding(
+            get: { spark[keyPath: keyPath] },
+            set: { newValue in
+                var changed = spark
+                changed[keyPath: keyPath] = newValue
+                onChange(changed)
+            }
+        )
     }
 }
 
-private struct EditableChip: View {
+private struct IngredientInputRow: View {
     let label: String
-    let value: String
-    let onChange: (String) -> Void
-    @State private var draftValue: String = ""
+    let icon: String
+    @Binding var text: String
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(label).font(.caption.bold()).foregroundColor(.secondary)
-            TextField(value, text: $draftValue, onCommit: { onChange(draftValue.isEmpty ? value : draftValue) })
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .accessibilityLabel("\(label) chip, \(value)")
+        HStack(alignment: .top, spacing: 10) {
+            Image(systemName: icon)
+                .frame(width: 24)
+                .foregroundColor(.emberGold)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(label)
+                    .font(.caption.bold())
+                    .foregroundColor(.secondary)
+                TextField(label, text: $text)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .accessibilityLabel("\(label) field")
+            }
+        }
+    }
+}
+
+private struct SprintSparkCard: View {
+    let spark: SparkCard
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(spark.title)
+                .font(.subheadline.weight(.semibold))
+            Text("Opening move: \(spark.sentenceConstraint)")
+                .font(.caption)
+                .foregroundColor(.secondary)
+            Text("Pressure: \(spark.characterPressure)")
+                .font(.caption)
+                .foregroundColor(.secondary)
+            SparkSummary(spark: spark)
+                .padding(10)
+                .background(Color.midnightPaper)
+                .cornerRadius(14)
         }
     }
 }
